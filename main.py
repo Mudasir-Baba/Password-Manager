@@ -1,16 +1,25 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+input_password = input("What is the password:- ")
+master_password = "Allahuakbar"
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def view():
+    with open("passwords.text", "r") as f:
+        for pair in f.readlines():
+            print(pair.rstrip())
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def add():
+    name = input("Name of account:- ")
+    password = input("Password: ")
+    with open("passwords.text", "a")as f:
+        f.write(f"Name: {name}\nPassword: {password}\n")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+while True:
+    process = input("Do you want to add a new password or view existing ones?(view/add)\n Press 'q' to quit: ").lower()
+    if process == 'q':
+        break
+    if process == "add":
+        add()
+    elif process == "view":
+        view()
