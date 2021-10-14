@@ -1,5 +1,6 @@
-input_password = input("What is the password:- ")
+
 master_password = "Allahuakbar"
+input_password = input("What is the password:- ")
 
 
 def view():
@@ -15,11 +16,17 @@ def add():
         f.write(f"Name: {name}\nPassword: {password}\n")
 
 
-while True:
-    process = input("Do you want to add a new password or view existing ones?(view/add)\n Press 'q' to quit: ").lower()
-    if process == 'q':
-        break
-    if process == "add":
-        add()
-    elif process == "view":
-        view()
+if input_password == master_password:
+    while True:
+        process = input("Do you want to add a new password or view existing ones?(view/add)\n Press 'q' to quit: ").lower()
+        if process == 'q':
+            break
+        if process == "add":
+            add()
+        elif process == "view":
+            view()
+else:
+    print("Wrong password")
+    quit()
+
+
